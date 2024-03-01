@@ -11,11 +11,15 @@ body {
 }
 
 .container {
-  display: block;
-  width: 50%;
-  margin: auto;
-
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.btn {
+  flex: 1 0 40%; /* Adjust flex properties as needed */
+}
+
 
 .btn {
   margin: 25px;
@@ -50,4 +54,18 @@ body {
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Adjust styles for small screens */
+  .container {
+    width: 80%;
+  }
+
+  .btn {
+    height: 100px;
+    width: 100px;
+    margin: 15px;
+    font-size: 1rem;
+  }
 }
