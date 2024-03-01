@@ -62,7 +62,7 @@ body {
 @media only screen and (max-width: 600px) {
   /* Adjust styles for small screens */
   .container {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
