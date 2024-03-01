@@ -7,7 +7,7 @@ var started = false;
 var level = 0;
 
 // Use click for desktop
-$(document).on("click", function() {
+$(document).on("click tap", function() {
   if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence();
@@ -15,8 +15,8 @@ $(document).on("click", function() {
   }
 });
 
-// Use tap for mobile devices
-$(document).on("tap", function() {
+// For keyboard input
+$(document).on("keypress", function() {
   if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence();
@@ -24,19 +24,20 @@ $(document).on("tap", function() {
   }
 });
 
-$(".btn").on("click tap", function() {
+$(".btn").on("click touchstart", function() {
   var userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
 
   playSound(userChosenColour);
   animatePress(userChosenColour);
 
-  checkAnswer(userClickedPattern.length-1);
+  checkAnswer(userClickedPattern.length - 1);
 });
+
 
 function checkAnswer(currentLevel) {
   if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
-    if (userClickedPattern.length === gamePattern.length){
+    if (userClickedPattern.length === gamePattern.length) {
       setTimeout(function () {
         nextSequence();
       }, 1000);
@@ -48,11 +49,13 @@ function checkAnswer(currentLevel) {
 
     setTimeout(function () {
       $("body").removeClass("game-over");
+      $("#level-title").text("Press A Key to Start");
+      startOver();
+      started = false; // Reset the started variable
     }, 200);
-
-    startOver();
   }
 }
+
 
 function nextSequence() {
   userClickedPattern = [];

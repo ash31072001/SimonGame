@@ -14,6 +14,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
 .btn {
@@ -60,12 +63,19 @@ body {
   /* Adjust styles for small screens */
   .container {
     width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* height: 100vh; */
+
   }
 
   .btn {
     height: 100px;
     width: 100px;
-    margin: 15px;
+    margin: 20px;
     font-size: 1rem;
   }
 }
