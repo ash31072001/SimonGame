@@ -7,7 +7,7 @@ var started = false;
 var level = 0;
 
 // Use click for desktop
-$(document).on("click tap", function() {
+$(document).on("click touchstart", function() {
   if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence();
